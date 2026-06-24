@@ -1,0 +1,29 @@
+<UserControl x:Class="Babel.Views.Settings.AboutPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="28">
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock Text="Babel"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="#1E1E1E"
+                       Margin="0,0,0,4" />
+            <TextBlock Text="Cross-language translation tool"
+                       FontSize="13"
+                       Foreground="#666"
+                       Margin="0,0,0,16" />
+            <TextBlock Text="Press Ctrl+Shift+` anywhere to translate."
+                       FontSize="12"
+                       Foreground="#888"
+                       Margin="0,0,0,4" />
+            <TextBlock Text="Enter to translate · Tab to switch language · Esc to close."
+                       FontSize="12"
+                       Foreground="#888"
+                       Margin="0,0,0,16" />
+            <TextBlock FontSize="11" Foreground="#AAA">
+                <Run Text="Version " />
+                <Run Text="{Binding VersionText}" />
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

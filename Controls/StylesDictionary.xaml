@@ -1,0 +1,12 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Controls/Styles/BabelBrushes.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Controls/Styles/BabelSectionCard.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Controls/Styles/BabelSectionHeader.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Controls/Styles/BabelFormLabel.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Controls/Styles/BabelTextBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Controls/Styles/BabelPasswordBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Controls/Styles/BabelComboBoxStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

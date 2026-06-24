@@ -1,0 +1,96 @@
+<Window x:Class="Babel.Views.TranslationPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        SizeToContent="Height"
+        Width="380"
+        PreviewKeyDown="Window_PreviewKeyDown">
+    <Border Background="#2D2D2D"
+            BorderBrush="#444444"
+            BorderThickness="1"
+            CornerRadius="12"
+            Padding="14">
+        <Border.Effect>
+            <DropShadowEffect Color="#000000"
+                              BlurRadius="16"
+                              ShadowDepth="6"
+                              Opacity="0.35" />
+        </Border.Effect>
+        <StackPanel>
+            <!-- Language badge -->
+            <Border Padding="10,4"
+                    HorizontalAlignment="Left"
+                    Margin="0,0,0,10">
+                <TextBlock Foreground="White" FontSize="12" FontWeight="Normal">
+                    <Run Text="→ " />
+                    <Run Text="{Binding TargetLanguage}" />
+                </TextBlock>
+            </Border>
+
+            <TextBox x:Name="InputBox"
+                     Text="{Binding InputText, UpdateSourceTrigger=PropertyChanged}"
+                     Background="#1E1E1E"
+                     Foreground="#E0E0E0"
+                     BorderBrush="#444444"
+                     BorderThickness="1"
+                     CaretBrush="#0078D4"
+                     FontSize="14"
+                     Padding="4"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     MinHeight="40"
+                     MaxHeight="220"
+                     VerticalScrollBarVisibility="Auto"
+                     IsEnabled="{Binding IsInputEnabled}"
+                     TextChanged="InputBox_TextChanged">
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="8"
+                                            SnapsToDevicePixels="True"
+                                            UseLayoutRounding="True">
+                                        <ScrollViewer x:Name="PART_ContentHost"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="#0078D4" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+
+            <Grid Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding StatusText}"
+                           Foreground="{Binding StatusForeground}"
+                           FontSize="12"
+                           VerticalAlignment="Center"
+                           Visibility="{Binding IsStatusVisible, Converter={StaticResource BoolToVis}}" />
+                <TextBlock Grid.Column="1"
+                           Text="Enter ↑ · Tab ⇄ · Esc ✕"
+                           Foreground="#777777"
+                           FontSize="11"
+                           VerticalAlignment="Center" />
+            </Grid>
+        </StackPanel>
+    </Border>
+</Window>

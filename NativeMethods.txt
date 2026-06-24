@@ -1,0 +1,8 @@
+GetForegroundWindow
+SetForegroundWindow
+RegisterHotKey
+UnregisterHotKey
+SendInput
+GetCursorPos
+MonitorFromPoint
+GetMonitorInfo
